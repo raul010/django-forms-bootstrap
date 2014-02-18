@@ -1,0 +1,20 @@
+{% extends "base_form_user.html" %}
+
+{% block title %} Form Test {% endblock %}
+
+{% block content%}
+
+Search: <input ng-model="query">
+Sort by:
+<select ng-model="orderProp">
+	<option value="name">Alphabetical</option>
+	<option value="age">Newest</option>
+</select>
+
+<ul>
+	<li ng-repeat="star in stars | filter:query | orderBy:orderProp">
+		{[{star.name}]}
+		<p>{[{star.snippet}]}</p>
+	</li>
+</ul>
+{% endblock %}
