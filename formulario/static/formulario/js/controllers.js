@@ -9,11 +9,12 @@ formUserApp.controller('StarListCtrl', function ($scope){
 	$scope.stars = [
 	    {'name': 'Joaquim Phoenix',
 	    'snippet': 'Ator'},
-	    
+
 	    {'name': 'Bruce',
 	    'snippet': 'Cantor'},
-	    
+
 	    {'name': 'Neymar',
 	    'snippet': 'Jogador'},
     ];
+    $scope.orderProp = "name";
 });

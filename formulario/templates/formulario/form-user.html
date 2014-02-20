@@ -1,0 +1,21 @@
+{% extends "base-form-user.html" %}
+
+{% block title %} Form User {% endblock %}
+
+{% block content%}
+<h1>Hello, Bootstrap ツ</h1>
+<br />
+<form class="form-horizontal" role="form" method="post" action=".">{% csrf_token %}
+    <div class="row col-xs-7 col-sm-7 col-md-7 col-lg-7">
+		{% include 'form.html' %}
+	<div class="">
+		<button type="submit" class="btn btn-default pull-right">Enviar !!!</button>
+	</div>
+</div><!-- /container -->
+		
+	<div class="container ">
+		{% for nome in book %}
+			<li>{{nome.name}}</li>
+		{% endfor %}
+	</div>
+{% endblock %}

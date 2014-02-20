@@ -1,31 +1,32 @@
-# -*- coding: utf-8 -*-
-from django.db import models
 from django.forms import ModelForm
+from django.db import models
 
 TITLE_CHOICES = (
     ('MR', 'Mr.'),
-    ('MRS', 'Mrs'),
+    ('MRS', 'Mrs.'),
     ('MS', 'Ms.'),
 )
 
 class Author(models.Model):
     name = models.CharField(max_length=100)
     title = models.CharField(max_length=3, choices=TITLE_CHOICES)
-    bith_date = models.DateField(blank=True, null=True)
-    
+    birth_date = models.DateField(blank=True, null=True)
+
+    # On Python 3: def __str__(self):
     def __unicode__(self):
         return self.name
 
 class Book(models.Model):
-    name = models.CharField(max_length=100)
+    name_book = models.CharField(max_length=100)
     authors = models.ManyToManyField(Author)
 
 class AuthorForm(ModelForm):
     class Meta:
         model = Author
-        fields = ['name','title','bith_date']
+        fields = ['name', 'title', 'birth_date']
 
 class BookForm(ModelForm):
     class Meta:
         model = Book
-        fields = ['name', 'authors']
+        fields = ['name_book', 'authors']
+        

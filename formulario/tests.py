@@ -1,3 +1,16 @@
-from django.test import TestCase
+from django.test.client import Client
 
-# Create your tests here.
+from formulario.models import AuthorForm
+
+
+client = Client();
+f = AuthorForm()
+
+new_author = f.save(commit=False)
+
+new_author.some_field = 'some_value'
+
+new_author.save()
+
+f.save_m2m()
+

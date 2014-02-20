@@ -1,0 +1,34 @@
+{% load addcss %}
+    {% for field in form %}
+    	{% if field.errors %}
+            <div class="form-group has-error has-feedback">
+                <label class="col-sm-2 col-md-2 col-lg-2 control-label" for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %}*{% endif %}</label> 
+				<div class="col-xs-10 col-sm-8 col-md-10 col-lg-10">
+                    {{ field|attr:"class=form-control; placeholder=teste" }}
+                    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                    <div class="text-danger">
+                        {% for error in field.errors %}{{ error }}{% endfor %}
+                    </div>
+                    </span>
+                </div>
+            </div>
+        {% else %}
+            <div class="form-group">
+                <label class="col-sm-2 col-md-2 col-lg-2 control-label" for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %}*{% endif %}</label>
+				<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                	{{ field|attr:"class=form-control; placeholder=teste" }}
+                    {% if field.help_text %}
+                    	<div class="help-block">{{ field.help_text }}</div>
+                	{% endif %}
+                </div>
+            </div>
+        {% endif %}
+	{% endfor %}
+</form>
+{% comment %}
+	{% block formsets %}
+	    {% for formset in inlines %}
+	        %{ include "inline_formset.html" with formset=formset }%
+	    {% endfor %}        
+	{% endblock formsets %}
+{% endcomment %}

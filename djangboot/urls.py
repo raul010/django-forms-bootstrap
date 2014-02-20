@@ -5,9 +5,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'djangular.views.home', name='home'),
+    # url(r'^$', 'djangboot.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^formulario/', include('formulario.urls', namespace='form')),
+    url(r'^', include('formulario.urls', namespace='form')),
 )

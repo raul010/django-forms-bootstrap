@@ -1,5 +1,5 @@
 """
-Django settings for djangular project.
+Django settings for djangboot project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -48,9 +48,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'djangular.urls'
+ROOT_URLCONF = 'djangboot.urls'
 
-WSGI_APPLICATION = 'djangular.wsgi.application'
+WSGI_APPLICATION = 'djangboot.wsgi.application'
 
 
 # Database
